@@ -1,0 +1,43 @@
+
+
+.navbar{
+     background-color: #61a0ca93;
+   border: none;
+   border-radius: none;
+ }
+
+ 
+ .container-fluid ul li a{
+     color: white;
+ }
+.container-fluid ul li:hover {
+cursor: pointer;
+cursor: hand;
+/* background-color:rgba(67, 110, 134, 0.432); */
+font-size: 20px;    
+}
+
+.btn{
+    display: none;
+   
+}
+
+
+@media only screen and (max-width: 720px) {
+    .container h3 {
+        font-size: 25px;
+    }
+    .liststyle ul li:hover {
+        cursor: pointer;
+        cursor: hand;
+
+        font-size: 20px;    
+        }
+
+    .btn{
+     margin-top:2%; 
+        margin-right:10% ;
+        display: block;
+    float: right;    
+    }
+}
