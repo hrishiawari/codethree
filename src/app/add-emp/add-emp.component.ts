@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+ import { FristServiceService } from '../Services/frist-service.service';
 
 @Component({
   selector: 'app-add-emp',
@@ -8,11 +10,32 @@ import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, Valid
 })
 export class AddEmpComponent implements OnInit {
   myFrm: FormGroup;
-  
-  constructor( private fb: FormBuilder,) { }
+  okk=false;
+  GoldData;
+  contacttitle;
+  contactmsg
+  addtitle;
+  constructor( 
+    private ser:FristServiceService,
+    private fb: FormBuilder
+ 
+) { 
+ 
+}
 
  
   ngOnInit() {
+
+
+    this.ser.calling(dt => {
+      
+       this.addtitle=dt.title;
+       
+      console.log(this.addtitle)
+     });
+
+
+
     this.myFrm = this.fb.group({
       name: ['', Validators.required],
       // message: ['', Validators.required],
@@ -34,9 +57,11 @@ export class AddEmpComponent implements OnInit {
     });
   }
   onFrmSub() {
-   console.log(this.myFrm.value)
-    // window.onscroll = function () { window.scrollTo(0,0); };
-    // this.ser.submit(this.myFrm.value).subscribe(
+    console.log(this.addtitle)
+  //  console.log(this.myFrm.value)
+    window.onscroll = function () { window.scrollTo(0,0); };
+    this.okk=true;
+    // this.ser.submitFrm(this.myFrm.value).subscribe(
     //   data => {
     //   this.GoldData=data
     //   if(this.GoldData.success==true)
@@ -52,7 +77,11 @@ export class AddEmpComponent implements OnInit {
     //     this.contactmsg="Please Try Again..."
     //   }
     //   }
-      
     // );
+  }
+
+  next(){
+    this.okk=false;
+    window.onscroll = function () { window.scrollTo(0,window.scrollY); };
   }
 }

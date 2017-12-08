@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="row">
     <div class="col-md-12">
       <div class="col-md-2">
@@ -7,8 +6,12 @@
       </div>
       <div class="col-md-8">
         <div class="card">
+          <br>
           <form class="ajax-form" id="contactForm" [formGroup]="myFrm" (ngSubmit)="onFrmSub()" novalidate>
-            <div class="form-group">
+            
+              
+            <div class="form-group" >
+              
               <input class="form-control" type="text" placeholder="Your Name" formControlName="name">
               <span class="text-muted" *ngIf="!myFrm.controls.name.valid">Enter Your Name*</span>
             </div>
@@ -16,6 +19,7 @@
               <input class="form-control" type="text" placeholder="Email" formControlName="email">
               <span class="text-muted" *ngIf="!myFrm.controls.email.valid">Enter Email*</span>
             </div>
+           
             <div class="form-group">
               <input class="form-control" type="text" placeholder="Mobile No" formControlName="mobile">
               <span class="text-muted" *ngIf="!myFrm.controls.mobile.valid">Enter Mobile Number*</span>
@@ -74,7 +78,8 @@
             </div>
             By clicking submit you agree to send Yur Information to DeVikas Software Solution Pvt Ltd,Who agree to use it according to their privacy Policy
             <div class="form-group">
-              <input type="submit" value="submit" name="submit" class="btn btn-info" [disabled]="!myFrm.valid">
+              <input type="submit" value="submit" name="submit" class="btn btn-info">
+              <!-- <input type="submit" value="submit" name="submit" class="btn btn-info" [disabled]="!myFrm.valid"> -->
             </div>
           </form>
 
@@ -89,3 +94,11 @@
 
 
 </div>
+
+
+<div class="fixer" *ngIf="okk" (click)="next()">
+  <div class="card">
+    {{contactmsg}}
+    {{contacttitle}}
+        </div>
+  </div>
