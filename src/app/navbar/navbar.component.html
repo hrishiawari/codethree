@@ -18,8 +18,10 @@
            </div>
         </div>
       </nav>      
-      <div class="fixer" *ngIf="okk" >
-        <div class="card">
+     
+        <div class="cards" *ngIf="okk">
+<a href="#" class="close"></a>
+         
           <form #emf="ngForm" class="ajax-form" (ngSubmit)="login(emf);emf.resetForm()">
               <div class="form-group" >
             <input type="text" placeholder="Username" name="user" ngModel>
@@ -29,8 +31,8 @@
               </div>
               <div class="form-group" >
                   
-              <input type="submit" class="btn btn-primary" value="Login">
+              <input type="submit" class="btn-primary" value="Login">
               </div>
           </form>
-        </div>
+
         </div>

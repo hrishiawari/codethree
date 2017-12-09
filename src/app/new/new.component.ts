@@ -18,8 +18,10 @@ title="add title"
   }
 
   submitFrm(title){
-    this.fillFrm=true;
+    //this.fillFrm=true;
 this.ser.addtitle(title);
+document.getElementById("HideDiv").classList.toggle('active')
+
   }
 
 

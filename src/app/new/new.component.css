@@ -8,3 +8,9 @@ margin-right: 2%;
        margin-top: 10px;
 
 }
+#HideDiv{
+    display: none;
+}
+#HideDiv.active{
+    display: block;
+}

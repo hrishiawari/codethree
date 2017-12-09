@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgForm } from '@angular/forms';
  import { FristServiceService } from '../Services/frist-service.service';
+import { DISABLED } from '@angular/forms/src/model';
 
 @Component({
   selector: 'app-add-emp',
@@ -13,7 +14,16 @@ export class AddEmpComponent implements OnInit {
   okk=false;
   GoldData;
   contacttitle;
-  contactmsg
+  contactmsg;
+  addtitle;
+ 
+  obj2
+   obj1 = {
+    addTitle: this.addtitle,
+    
+}
+
+
 
   constructor( 
     private ser:FristServiceService,
@@ -23,14 +33,15 @@ export class AddEmpComponent implements OnInit {
  
 }
 
+
   ngOnInit() {
 
 
     this.ser.calling(dt => {
       
        this.addtitle=dt.title;
-       
-      console.log(this.addtitle)
+
+     
      });
 
 
@@ -51,14 +62,37 @@ export class AddEmpComponent implements OnInit {
       exp: ['', Validators.required],
       lastpack: ['', Validators.required],
       projects:['',Validators.required],
-      mobilewhatsapp:['',Validators.required]
+      mobilewhatsapp:['',Validators.required],
 
+       
+      
+      
     });
+  
+    
   }
-  addtitle;
+  
+
   onFrmSub() {
-    console.log(this.addtitle)
-  //  console.log(this.myFrm.value)
+
+
+ this.obj2=this.myFrm.value
+    for (var key in this.obj2) {
+      this.obj1[key] =this.obj2[key]
+      }
+
+      var res = JSON.stringify(this.obj1);
+     let d=JSON.parse(res)
+      console.log(d);
+
+
+
+
+
+
+
+    // console.log(this.addtitle)
+   console.log(this.myFrm.value)
     window.onscroll = function () { window.scrollTo(0,0); };
     this.okk=true;
     // this.ser.submitFrm(this.myFrm.value).subscribe(

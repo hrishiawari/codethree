@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-head',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./head.component.css']
 })
 export class HeadComponent implements OnInit {
+  AdAdmin:FormGroup;
+  constructor(
+    private FBuild:FormBuilder,
 
-  constructor() { }
+  ) { }
 
   ngOnInit() {
+    this.AdAdmin=this.FBuild.group({
+      name:['',Validators.required],
+      category:['',Validators.required]
+    })
+  }
+
+  adAdmin(){
+    console.log(this.AdAdmin.value);
   }
 
 }

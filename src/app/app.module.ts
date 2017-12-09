@@ -16,7 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { HeadComponent } from './head/head.component';
 import { AdminComponent } from './admin/admin.component';
 import { EmployeeComponent } from './employee/employee.component';
-
+import{AdminService} from '../app/Services/admin.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +30,7 @@ import { EmployeeComponent } from './employee/employee.component';
   imports: [
     BrowserModule,RouterModule,Approuter ,HttpClientModule,HttpModule,FormsModule,ReactiveFormsModule
   ],
-  providers: [FristServiceService],
+  providers: [FristServiceService,AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
