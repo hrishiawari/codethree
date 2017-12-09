@@ -14,7 +14,7 @@ export class AddEmpComponent implements OnInit {
   GoldData;
   contacttitle;
   contactmsg
-  addtitle;
+
   constructor( 
     private ser:FristServiceService,
     private fb: FormBuilder
@@ -23,7 +23,6 @@ export class AddEmpComponent implements OnInit {
  
 }
 
- 
   ngOnInit() {
 
 
@@ -56,6 +55,7 @@ export class AddEmpComponent implements OnInit {
 
     });
   }
+  addtitle;
   onFrmSub() {
     console.log(this.addtitle)
   //  console.log(this.myFrm.value)
